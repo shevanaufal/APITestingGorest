@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "bb69de5d-e80e-489e-a271-38c42bb93c8b",
+		"name": "API Testing Gorest (Sheva)",
+		"description": "This collection is created for API Testing from [https://gorest.co.in/](https://gorest.co.in/) that used for technical assesment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get Users",
+					"id": "e88ece98-af18-4e12-887c-01a0a280c965",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/public/v2/users?access-token={{accessToken}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users"
+							],
+							"query": [
+								{
+									"key": "access-token",
+									"value": "{{accessToken}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Users",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ae2a942c-f376-4420-bba5-2a85a8cd276a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "2648062d-da9e-40cc-b7da-5b8bd810c505",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"{{currentID}}\",\r\n    \"name\":\"{{$randomUserName}}\",\r\n    \"email\":\"{{$randomEmail}}\",\r\n    \"gender\":\"female\",\r\n    \"status\":\"active\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/public/v2/users?access-token={{accessToken}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users"
+							],
+							"query": [
+								{
+									"key": "access-token",
+									"value": "{{accessToken}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users Details",
+					"id": "0352cc5c-a869-4102-8e5c-1e0b71886b88",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":6899659\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/public/v2/users?access-token={{accessToken}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users"
+							],
+							"query": [
+								{
+									"key": "access-token",
+									"value": "{{accessToken}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Users Details",
+					"id": "cb654c62-d42f-4c9f-9514-e25cf9b8ca4a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    //\"id\":\"\",\r\n    //\"name\":\"\",\r\n    //\"email\":\"\",\r\n    \"gender\":\"female\",\r\n    \"status\":\"active\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/public/v2/users/6899659?access-token={{accessToken}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users",
+								"6899659"
+							],
+							"query": [
+								{
+									"key": "access-token",
+									"value": "{{accessToken}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "117ee42e-2be2-4c51-8cf3-91176a876ed7",
+			"description": "This folder contains API Testing that used for manipulating data user:  \n1\\. Get Users  \n2\\. Add Users  \n3\\. Get Users Details  \n4\\. Update Users Details"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ba1d871a-ded9-4f15-9988-fac5eff2b3fa",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f08aa4ad-10a8-46e5-a11e-e84d4b751e10",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "currentID",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
